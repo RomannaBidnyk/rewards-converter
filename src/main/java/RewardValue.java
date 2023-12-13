@@ -1,14 +1,14 @@
 public class RewardValue {
 
-    private double cash;
-    private int miles;
+    private final double cash;
+    private final static double CONVERT_RATE = 0.0035;
 
     public RewardValue(double cash) {
         this.cash = cash;
     }
 
     public RewardValue(int miles) {
-        this.miles = miles;
+        this.cash = miles * CONVERT_RATE;
     }
 
     public double getCashValue() {
@@ -16,6 +16,6 @@ public class RewardValue {
     }
 
     public int getMilesValue() {
-        return miles;
+        return (int) (cash / CONVERT_RATE);
     }
 }
